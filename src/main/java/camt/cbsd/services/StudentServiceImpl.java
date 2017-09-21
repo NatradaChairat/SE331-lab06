@@ -11,7 +11,7 @@ import java.util.List;
 @Profile("firstDataSource")
 @Service
 public class StudentServiceImpl implements StudentService {
-    String imageBaseUrl = "http://localhost:300/image/";
+    String imageBaseUrl = "http://localhost:300/images/";
     public List<Student> getStudents(){
         List<Student> students = new ArrayList<>();
 

@@ -27,4 +27,9 @@ public class StudentSecondServiceImpl implements StudentService {
     public  List<Student> getStudents(){
         return myStudentDao.getStudents();
     }
+
+    @Override
+    public Student findById(long id) {
+        return myStudentDao.findById(id);
+    }
 }

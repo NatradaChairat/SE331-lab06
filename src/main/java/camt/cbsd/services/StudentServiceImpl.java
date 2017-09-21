@@ -19,6 +19,11 @@ public class StudentServiceImpl implements StudentService {
         return studentDao.getStudents();
     }
 
+    @Override
+    public Student findById(long id) {
+        return studentDao.findById(id);
+    }
+
 
 
     /*//String imageBaseUrl = "http://localhost:3000/images/";

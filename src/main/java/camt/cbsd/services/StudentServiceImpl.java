@@ -1,6 +1,9 @@
 package camt.cbsd.services;
 
+import camt.cbsd.dao.MyStudentDao;
+import camt.cbsd.dao.StudentDao;
 import camt.cbsd.entity.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -11,10 +14,18 @@ import java.util.List;
 
 
 @Profile("firstDataSource")
-@ConfigurationProperties(prefix="server")
+/*@ConfigurationProperties(prefix="server")*/
 @Service
 public class StudentServiceImpl implements StudentService {
-    //String imageBaseUrl = "http://localhost:3000/images/";
+    @Autowired
+    StudentDao studentDao;
+    public List<Student> getStudents(){
+        return studentDao.getStudents();
+    }
+
+
+
+    /*//String imageBaseUrl = "http://localhost:3000/images/";
     String imageBaseUrl;
     String baseUrl;
     String imageUrl;
@@ -32,7 +43,7 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getStudents(){
         List<Student> students = new ArrayList<>();
 
-        /*Student student = new Student(1,"SE-001","Mitsuha","Miyamizu",
+        *//*Student student = new Student(1,"SE-001","Mitsuha","Miyamizu",
                 2.15,"images/mitsuha.gif",true,0,
                 "The most beloved one");
         students.add(student);
@@ -42,7 +53,7 @@ public class StudentServiceImpl implements StudentService {
         students.add(student);
         student = new Student(3,"SE-003","Jurgen","Kloop",
                 2.15,"images/Kloop.gif",true,2,
-                "The man for the Kop");*/
+                "The man for the Kop");*//*
         Student student = new Student(1,"SE-001","Mitsuha","Miyamizu",
                 2.15,imageBaseUrl+"mitsuha.gif",true,0,
                 "The most beloved one");
@@ -56,5 +67,5 @@ public class StudentServiceImpl implements StudentService {
                 "The man for the Kop");
         students.add(student);
         return students;
-    }
+    }*/
 }

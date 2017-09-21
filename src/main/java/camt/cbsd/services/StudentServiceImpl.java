@@ -1,6 +1,7 @@
 package camt.cbsd.services;
 
 import camt.cbsd.entity.Student;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,10 @@ import java.util.List;
 
 
 @Profile("firstDataSource")
+
 @Service
 public class StudentServiceImpl implements StudentService {
-    String imageBaseUrl = "http://localhost:300/images/";
+    String imageBaseUrl = "http://localhost:3000/images/";
     public List<Student> getStudents(){
         List<Student> students = new ArrayList<>();
 

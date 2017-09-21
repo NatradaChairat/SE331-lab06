@@ -5,15 +5,30 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Profile("firstDataSource")
-
+@ConfigurationProperties(prefix="server")
 @Service
 public class StudentServiceImpl implements StudentService {
-    String imageBaseUrl = "http://localhost:3000/images/";
+    //String imageBaseUrl = "http://localhost:3000/images/";
+    String imageBaseUrl;
+    String baseUrl;
+    String imageUrl;
+    public void setBaseUrl(String baseUrl){
+        this.baseUrl = baseUrl;
+    }
+    public void setImageUrl(String imageUrl){
+        this.imageUrl=imageUrl;
+    }
+    @PostConstruct
+    protected void setImageBaseUrl(){
+        this.imageBaseUrl = this.baseUrl + this.imageUrl;
+    }
+
     public List<Student> getStudents(){
         List<Student> students = new ArrayList<>();
 

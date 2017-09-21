@@ -12,8 +12,8 @@ import java.util.List;
 @Profile("secondDataSource")
 @ConfigurationProperties(prefix = "server")
 @Repository
-public class MyStudentDaoImpl implements MyStudentDao {
-    List<Student> students;
+public class MyStudentDaoImpl extends AbstractStudentDao {
+    /*List<Student> students;
     String imageBaseUrl;
     String baseUrl;
     String imageUrl;
@@ -22,7 +22,7 @@ public class MyStudentDaoImpl implements MyStudentDao {
     }
     public void setImageUrl(String imageUrl){
         this.imageUrl=imageUrl;
-    }
+    }*/
     @PostConstruct
     private void init(){
         this.imageBaseUrl = this.baseUrl + this.imageUrl;
@@ -37,7 +37,7 @@ public class MyStudentDaoImpl implements MyStudentDao {
         students.add(student);
 
     }
-    @Override
+    /*@Override
     public List<Student> getStudents() {
         return students;
     }
@@ -45,5 +45,5 @@ public class MyStudentDaoImpl implements MyStudentDao {
     @Override
     public Student findById(long id) {
         return students.stream().filter(s -> s.getId() == id).findFirst().get();
-    }
+    }*/
 }

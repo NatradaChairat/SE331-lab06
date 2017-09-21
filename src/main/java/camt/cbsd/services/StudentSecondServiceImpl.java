@@ -1,12 +1,11 @@
 package camt.cbsd.services;
 
-import camt.cbsd.dao.MyStudentDao;
+import camt.cbsd.dao.StudentDao;
 import camt.cbsd.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Profile("secondDataSource")
@@ -24,7 +23,7 @@ public class StudentSecondServiceImpl implements StudentService {
         return students;
     }*/
     @Autowired
-    MyStudentDao myStudentDao;
+    StudentDao myStudentDao;
     public  List<Student> getStudents(){
         return myStudentDao.getStudents();
     }

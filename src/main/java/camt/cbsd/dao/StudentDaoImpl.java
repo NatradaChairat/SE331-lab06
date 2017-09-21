@@ -12,9 +12,9 @@ import java.util.List;
 @Profile("firstDataSource")
 @ConfigurationProperties(prefix = "server")
 @Repository
-public class StudentDaoImpl implements StudentDao {
+public class StudentDaoImpl extends AbstractStudentDao {
     //String imageBaseUrl = "http://localhost:3000/images/";
-    List<Student> students;
+   /* List<Student> students;
     String imageBaseUrl;
     String baseUrl;
     String imageUrl;
@@ -23,7 +23,7 @@ public class StudentDaoImpl implements StudentDao {
     }
     public void setImageUrl(String imageUrl){
         this.imageUrl=imageUrl;
-    }
+    }*/
     @PostConstruct
     private void init(){
         this.imageBaseUrl = this.baseUrl + this.imageUrl;
@@ -42,7 +42,7 @@ public class StudentDaoImpl implements StudentDao {
         students.add(student);
     }
 
-
+/*
     @Override
     public List<Student> getStudents() {
         return students;
@@ -51,5 +51,5 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public Student findById(long id) {
         return students.stream().filter(s -> s.getId() == id).findFirst().get();
-    }
+    }*/
 }
